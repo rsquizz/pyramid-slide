@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="mario.css" rel="stylesheet" type="text/css">
+    <style>
+      #pyramid {
+        font-family: "Courier New", monospace;
+        line-height: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Pyramid Slide</h1>
+    </header>
+    <div id='main'>
+    <p id='boxhead'>Brick symbol:
+      <select name="brick">
+        <option value ="#">#</option>
+        <option value ="@">@</option>
+        <option value ="X">X</option>
+        <option value ="$">$</option>
+      </select>&nbsp;&nbsp;&nbsp;&nbsp;
+    How high? <input type="range" name="points" min="1" max="20"></p>
+    <div id="pyramid">
+      <!-- Our pyramid will go inside here -->
+      <div id="construction">
+        <p>Uh oh! the pyramid is still under construction.</p>
+        <p>Check back again soon... our developers are hard at wrk as we speak!</p>
+      </div>
+    </div>
+    </div>
+    <script src="mario.js"></script>
+  </body>
+</html>
