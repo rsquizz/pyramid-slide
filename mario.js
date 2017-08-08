@@ -1,10 +1,9 @@
-let pyramid = document.getElementById('pyramid');
-let selectPoints = document.querySelector('input[name="points"]');
-let selectBrick = document.querySelector('select[name="brick"]');
+let pyramid = $('#pyramid');
+const selectPoints = $('input[name="points"]').eq(0);
+const selectBrick = $('select[name="brick"]').eq(0);
 let symbol = '#';
 let height = 5;
-let divTwo = document.getElementById('construction');
-    divTwo.parentNode.removeChild(divTwo);
+$('#construction').remove();
 //These variable declarations are sloppy af
 
 printPyramid(height, symbol);
@@ -22,21 +21,22 @@ printPyramid(height, symbol);
  *      ######
  */
 function printPyramid(height, symbol) {
-    const space = "&nbsp"
+    const space = "\xa0"
     let pound = symbol;
     let row = '';
     for (i = height - 1; i >= 0; i--) {
         pound += symbol;
         let spaces = space.repeat(i);
         row = spaces + pound;
-        pyramid.innerHTML+="<p>" + row + "</p>";
+        let newRow = $( '<p>' ).text(row);
+        pyramid.append(newRow);
     }}
 
 function deletePyramid(){
-    pyramid.innerHTML =''
+    pyramid.empty();
 }
     
-selectBrick.addEventListener("change", function(event){
+selectBrick.change(function(event){
     if(!event.target.value) {symbol = '#'
     } else {
     symbol = event.target.value;
@@ -45,7 +45,7 @@ selectBrick.addEventListener("change", function(event){
     }
 });
 
-selectPoints.addEventListener("change", function(activity){
+selectPoints.change(function(activity){
     if(!activity.target.value) {height = 5
     } else {
         height = activity.target.value;
